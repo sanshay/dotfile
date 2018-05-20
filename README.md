@@ -1,2 +1,5 @@
 # dotfile
-kiuytr
+
+
+I3 config 
+
