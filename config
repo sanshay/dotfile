@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -47,7 +47,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-#bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -show run
 exec nitrogen --no-startup-id --restore
 # change focus
 bindsym $mod+j focus left
@@ -169,7 +169,7 @@ set $urgent-bg-color     #E53935
 #                       border              background         text                 indicator
 bar {
  	font pango:Source Sans Pro-10 10
-	status_command i3blocks -c /home/dunken/.i3/i3blocks.conf
+	status_command i3blocks
   colors {
     separator #268bd2
     background #002b36
@@ -201,7 +201,7 @@ gaps outer 0
 
 bindsym $mod+Shift+s exec poweroff -i
 
-bindsym $mod+Shift+a exec albert
+#bindsym $mod+Shift+a exec albert
 
 bindsym Print exec gnome-screenshot
 
@@ -209,4 +209,22 @@ bindsym $mod+g exec firefox
 
 bindsym $mod+u exec telegram-desktop
 
-bindsym $mod+Shift+f exec nautilus 
+bindsym $mod+Shift+f exec nautilus
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous 
