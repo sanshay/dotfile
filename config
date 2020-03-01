@@ -169,7 +169,7 @@ set $urgent-bg-color     #E53935
 #                       border              background         text                 indicator
 bar {
  	font pango:Source Sans Pro-10 10
-	status_command i3blocks
+	status_command i3status
   colors {
     separator #268bd2
     background #002b36
@@ -193,8 +193,8 @@ exec --no-startup-id pa-applet
 for_window [class="gpodder"] floating true
 for_window [class="^.*"] border pixel 5
 
-gaps inner 7
-gaps outer 0
+#gaps inner 7
+#gaps outer 0
 # smart_gaps on
 
 
